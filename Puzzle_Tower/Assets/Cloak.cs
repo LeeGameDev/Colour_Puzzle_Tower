@@ -33,11 +33,24 @@ public class Cloak : MonoBehaviour
 		}
 		else
 		{
+			if (Input.GetKeyUp(KeyCode.Alpha1))
+			{
+				SelectCloakColour(0);
+			}
+			if (Input.GetKeyUp(KeyCode.Alpha2))
+			{
+				SelectCloakColour(1);
+			}
 			if (Input.GetKeyUp(KeyCode.Space))
 			{
 				Use();
 			}
 		}
+	}
+
+	public void SelectCloakColour(int cloakColourIndex)
+	{
+		selectedCloakColour = colours[cloakColourIndex];
 	}
 
 	public void SelectCloakColour(CloakColour cloakColour)

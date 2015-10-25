@@ -50,9 +50,10 @@
      <Compile Include="Assets\CloakColour.cs" />
      <Compile Include="Assets\Door.cs" />
      <Compile Include="Assets\ResetDevice.cs" />
-     <Compile Include="Assets\Warp.cs" />
      <Compile Include="Assets\WarpPoint.cs" />
+     <None Include="Assets\Example Scenes\Cloak Example README.txt" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Example Scenes\Floor Warp Example.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
  <Reference Include="UnityEngine.UI">

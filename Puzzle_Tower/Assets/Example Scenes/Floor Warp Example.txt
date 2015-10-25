@@ -1,0 +1,21 @@
+Unity Scene Name: Floor Warp Example.unity
+
+How to use
+==========
+- Walk with WASD
+- Rotate camera with mouse
+- Select warp floor with 1, 2, 3, and 4
+
+1. Walk to the 1st floor warp
+2. Walk up the slope to the next floor's warp
+3. Repeat step 2 until you reach the top floor's warp
+4. While standing on a warp press 1, 2, 3, or 4 to instantly warp to that floor's warp location.
+
+Note:
+- Cloak is disabled for this example.
+
+- The player can only warp to locations to which they have been.
+
+- The player must stand on the warp location in order to warp elsewhere.
+
+- The player must stand on the warp location in order for it to be added to the list of available warp locations.
