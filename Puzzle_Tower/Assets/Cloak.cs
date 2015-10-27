@@ -9,6 +9,9 @@ public class Cloak : MonoBehaviour
 	public bool isInUse = false;
 	public CloakColour activeColour = null;
 
+	public SkinnedMeshRenderer skinnedMeshRenderer;
+	public Material defaultMaterial;
+
 	private float resetTimer = 0.0f;
 
 	// Use this for initialization
@@ -29,18 +32,21 @@ public class Cloak : MonoBehaviour
 			else
 			{
 				isInUse = false;
+				activeColour = null;
+				if (skinnedMeshRenderer != null)
+				{
+					skinnedMeshRenderer.sharedMaterial = defaultMaterial;
+				}
 			}
 		}
-		else
+
+		if (Input.GetKeyUp(KeyCode.Alpha1))
 		{
-			if (Input.GetKeyUp(KeyCode.Alpha1))
-			{
-				Use(0);
-			}
-			if (Input.GetKeyUp(KeyCode.Alpha2))
-			{
-				Use(1);
-			}
+			Use(0);
+		}
+		else if (Input.GetKeyUp(KeyCode.Alpha2))
+		{
+			Use(1);
 		}
 	}
 
@@ -58,7 +64,7 @@ public class Cloak : MonoBehaviour
 	// Use the cloak with the selected cloak colour to hide from the reset device
 	public void Use(CloakColour cloakColour)
 	{
-		if (cloakColour != null)
+		if ((cloakColour != null) && (cloakColour != activeColour))
 		{
 			// Hide from selectedCloakColour colour
 			// Begin timer
@@ -68,6 +74,11 @@ public class Cloak : MonoBehaviour
 			isInUse = true;
 
 			activeColour = cloakColour;
+
+			if (skinnedMeshRenderer != null)
+			{
+				skinnedMeshRenderer.sharedMaterial = cloakColour.cloakMat;
+			}
 		}
 	}
 }

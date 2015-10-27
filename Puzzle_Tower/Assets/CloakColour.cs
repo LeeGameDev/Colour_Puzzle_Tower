@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CloakColour : MonoBehaviour
 {
+	public Material cloakMat;
 
 	// Use this for initialization
 	void Start()
