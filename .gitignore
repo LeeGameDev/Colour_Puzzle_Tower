@@ -62,3 +62,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.csproj
+Puzzle_Tower/Assembly-CSharp-Editor-vs.csproj
+*.sln
+Puzzle_Tower/ProjectSettings/ProjectVersion.txt
