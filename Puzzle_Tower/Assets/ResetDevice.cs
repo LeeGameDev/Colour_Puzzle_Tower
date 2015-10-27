@@ -33,7 +33,7 @@ public class ResetDevice : MonoBehaviour
 		Cloak playerCloak = other.GetComponent<Cloak>();
 		if (playerCloak != null)
 		{
-			return !playerCloak.isInUse || (playerCloak.selectedCloakColour != invisibleToMe);
+			return !playerCloak.isInUse || (playerCloak.activeColour != invisibleToMe);
 		}
 		return true;
 	}

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 public class Cloak : MonoBehaviour
 {
 	public List<CloakColour> colours = new List<CloakColour>();
-	public CloakColour selectedCloakColour;
 	public float activationDuration = 2.0f;
 	public bool isInUse = false;
+	public CloakColour activeColour = null;
 
 	private float resetTimer = 0.0f;
 
@@ -35,39 +35,30 @@ public class Cloak : MonoBehaviour
 		{
 			if (Input.GetKeyUp(KeyCode.Alpha1))
 			{
-				SelectCloakColour(0);
+				Use(0);
 			}
 			if (Input.GetKeyUp(KeyCode.Alpha2))
 			{
-				SelectCloakColour(1);
-			}
-			if (Input.GetKeyUp(KeyCode.Space))
-			{
-				Use();
+				Use(1);
 			}
 		}
-	}
-
-	public void SelectCloakColour(int cloakColourIndex)
-	{
-		selectedCloakColour = colours[cloakColourIndex];
-	}
-
-	public void SelectCloakColour(CloakColour cloakColour)
-	{
-		selectedCloakColour = cloakColour;
 	}
 
 	public void AddCloakColour(CloakColour cloakColour)
 	{
 		colours.Add(cloakColour);
-		SelectCloakColour(cloakColour);
 	}
 
 	// Use the cloak with the selected cloak colour to hide from the reset device
-	public void Use()
+	public void Use(int cloakColourIndex)
 	{
-		if (selectedCloakColour != null)
+		Use(colours[cloakColourIndex]);
+	}
+	
+	// Use the cloak with the selected cloak colour to hide from the reset device
+	public void Use(CloakColour cloakColour)
+	{
+		if (cloakColour != null)
 		{
 			// Hide from selectedCloakColour colour
 			// Begin timer
@@ -75,6 +66,26 @@ public class Cloak : MonoBehaviour
 			
 			// Flag use
 			isInUse = true;
+
+			activeColour = cloakColour;
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
