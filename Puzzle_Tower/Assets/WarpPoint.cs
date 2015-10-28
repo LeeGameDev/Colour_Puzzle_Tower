@@ -1,65 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
+using UnityStandardAssets.Utility;
 
 public class WarpPoint : MonoBehaviour
 {
 	public int id;
-
-	public static Dictionary<int, WarpPoint> warpPoints = new Dictionary<int, WarpPoint>();
+	public WarpMaster master;
+	public string warpName;
 	
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.tag.Equals("Player"))
 		{
-			if (!warpPoints.ContainsKey(id))
+			if (master != null)
 			{
-				warpPoints.Add(id, this);
+				master.AddWarpPoint(id, this);
+				master.ShowWarpPoints(true, id);
 			}
 		}
 	}
 	
-	void OnTriggerStay(Collider other)
+	void OnTriggerExit(Collider other)
 	{
 		if (other.tag.Equals("Player"))
 		{
-			if (Input.GetKeyUp(KeyCode.Alpha1))
+			if (master != null)
 			{
-				WarpTo(other.transform, 0);
-			}
-			else
-			if (Input.GetKeyUp(KeyCode.Alpha2))
-			{
-				WarpTo(other.transform, 1);
-			}
-			else
-			if (Input.GetKeyUp(KeyCode.Alpha3))
-			{
-				WarpTo(other.transform, 2);
-			}
-			else
-			if (Input.GetKeyUp(KeyCode.Alpha4))
-			{
-				WarpTo(other.transform, 3);
+				master.ShowWarpPoints(false, id);
 			}
 		}
-	}
-
-	public static void WarpTo(Transform t, int destinationIndex)
-	{
-		WarpTo(t, warpPoints[destinationIndex]);
-	}
-
-	public static void WarpTo(Transform t, WarpPoint destination)
-	{
-		if (destination != null)
-		{
-			t.position = destination.transform.position;
-		}
-	}
-
-	public static void DisplayWarpPoints()
-	{
-		// UI Display of warp points
 	}
 }

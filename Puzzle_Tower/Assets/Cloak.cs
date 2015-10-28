@@ -40,11 +40,11 @@ public class Cloak : MonoBehaviour
 			}
 		}
 
-		if (Input.GetKeyUp(KeyCode.Alpha1))
+		if (Input.GetButtonUp("White Cloak"))
 		{
 			Use(0);
 		}
-		else if (Input.GetKeyUp(KeyCode.Alpha2))
+		else if (Input.GetButtonUp("Black Cloak"))
 		{
 			Use(1);
 		}

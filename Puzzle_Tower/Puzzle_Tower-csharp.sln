@@ -29,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																	GlobalSection(MonoDevelopProperties) = preSolution
+											GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
@@ -47,7 +47,7 @@ Global
 		$2.UsingBraceForcement = AddBraces
 		$2.FixedBraceForcement = AddBraces
 		$2.ElseNewLinePlacement = NewLine
-		$2.ElseIfNewLinePlacement = NewLine
+		$2.ElseIfNewLinePlacement = SameLine
 		$2.CatchNewLinePlacement = NewLine
 		$2.FinallyNewLinePlacement = NewLine
 		$2.BeforeMethodDeclarationParentheses = False
